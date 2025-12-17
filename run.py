@@ -1,34 +1,19 @@
-# run.py - Point d'entrée principal
+import streamlit as st
 import sys
 import os
-import subprocess
 
-# Ajouter le répertoire courant au path
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+# 1. Configurer les chemins pour que Python trouve vos dossiers 'src' et 'app'
+# On récupère le chemin du dossier racine (ECG_MI_Predict)
+root_path = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, root_path)
 
-print("Démarrage de l'application ECG Myocardite Detection...")
-print(f"Répertoire de travail: {os.getcwd()}")
-print(f"Python path: {sys.path[0]}")
+# 2. Exécuter le code de votre application réelle
+# Cela va lire et lancer votre fichier app/app.py
+app_path = os.path.join(root_path, "app", "app.py")
 
-# Importer et vérifier les dépendances
 try:
-    from src.database import get_database
-    print("✅ Base de données importée")
-    
-    # Initialiser la base de données
-    db = get_database()
-    print("✅ Base de données initialisée")
-    
-    # Lancer Streamlit
-    print("🚀 Lancement de l'application Streamlit...")
-    subprocess.run(["streamlit", "run", "app/app.py"])
-    
+    with open(app_path, "rb") as source_file:
+        code = compile(source_file.read(), app_path, "exec")
+    exec(code, globals())
 except Exception as e:
-    print(f"❌ Erreur: {e}")
-    print("\nInstallation des dépendances...")
-    subprocess.run([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
-    
-    # Réessayer
-    from src.database import get_database
-    db = get_database()
-    subprocess.run(["streamlit", "run", "app/app.py"])
+    st.error(f"Erreur lors du chargement de l'application : {e}")
