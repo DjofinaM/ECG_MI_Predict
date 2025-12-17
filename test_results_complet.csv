@@ -1,0 +1,13 @@
+class_id,class_name,file,predicted_class,predicted_name,confidence,correct
+0,Infarctus du myocarde (MI),MI(1) - Copy - Copy.jpg,3,Normal,0.9969624876976013,False
+0,Infarctus du myocarde (MI),MI(1) - Copy.jpg,3,Normal,0.9969624876976013,False
+0,Infarctus du myocarde (MI),MI(1).jpg,3,Normal,0.9969624876976013,False
+1,Antécédents MI (PMI),PMI(1) - Copy.jpg,3,Normal,0.9972278475761414,False
+1,Antécédents MI (PMI),PMI(1).jpg,3,Normal,0.9972278475761414,False
+1,Antécédents MI (PMI),PMI(10) - Copy.jpg,3,Normal,0.9983648657798767,False
+2,Rythme anormal (HB),HB(1) - Copy.jpg,3,Normal,0.9993157386779785,False
+2,Rythme anormal (HB),HB(1).jpg,3,Normal,0.9993157386779785,False
+2,Rythme anormal (HB),HB(10) - Copy.jpg,3,Normal,0.9987074136734009,False
+3,Normal,Normal(1) - Copy.jpg,3,Normal,0.9991310238838196,True
+3,Normal,Normal(1).jpg,3,Normal,0.9991310238838196,True
+3,Normal,Normal(10) - Copy.jpg,3,Normal,0.9987473487854004,True
